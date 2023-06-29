@@ -5,6 +5,6 @@
  * 
  */
 
-public record Country(String countryID, String name, String capital, double population) {
+public record Country(String name, String capital) {
 	
 }
