@@ -8,6 +8,7 @@
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
+import java.util.random.RandomGenerator.ArbitrarilyJumpableGenerator;
 
 public class CountryQuizGame { 
     private static final String DELIMITER = ",";
@@ -24,9 +25,12 @@ public class CountryQuizGame {
             List<String> lines = Files.readAllLines(Path.of(filePath));
             for (String line : lines) {
                 String[] values = line.split(DELIMITER);
-                String name = values[0].replace("\"", "");
-                String capital = values[1].replace("\"", "");
-                Country c = new Country(name, capital);
+                String id = values[0].replace("\"", "");
+                String name = values[1].replace("\"", "");
+                String capital = values[2].replace("\"", "");
+                String abr = values[3].replace("\"", "");
+                String continent = values[4].replace("\"", "");
+                Country c = new Country(id, name, capital, abr, continent);
                 allCountries.add(c);
             }
             System.out.printf("Loaded %d countries.%n", allCountries.size());

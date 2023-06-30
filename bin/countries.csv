@@ -1,249 +1,196 @@
-"country","capital","type"
-"Abkhazia","Sukhumi","countryCapital"
-"Afghanistan","Kabul","countryCapital"
-"Akrotiri and Dhekelia","Episkopi Cantonment","countryCapital"
-"Albania","Tirana","countryCapital"
-"Algeria","Algiers","countryCapital"
-"American Samoa","Pago Pago","countryCapital"
-"Andorra","Andorra la Vella","countryCapital"
-"Angola","Luanda","countryCapital"
-"Anguilla","The Valley","countryCapital"
-"Antigua and Barbuda","St Johns","countryCapital"
-"Argentina","Buenos Aires","countryCapital"
-"Armenia","Yerevan","countryCapital"
-"Aruba","Oranjestad","countryCapital"
-"Ascension Island","Georgetown","countryCapital"
-"Australia","Canberra","countryCapital"
-"Austria","Vienna","countryCapital"
-"Azerbaijan","Baku","countryCapital"
-"Bahamas","Nassau","countryCapital"
-"Bahrain","Manama","countryCapital"
-"Bangladesh","Dhaka","countryCapital"
-"Barbados","Bridgetown","countryCapital"
-"Belarus","Minsk","countryCapital"
-"Belgium","Brussels","countryCapital"
-"Belize","Belmopan","countryCapital"
-"Benin","Porto Novo","countryCapital"
-"Bermuda","Hamilton","countryCapital"
-"Bhutan","Thimphu","countryCapital"
-"Bolivia","Sucre","countryCapital"
-"Bolivia","La Paz","countryCapital"
-"Bosnia and Herzegovina","Sarajevo","countryCapital"
-"Botswana","Gaborone","countryCapital"
-"Brazil","Brasilia","countryCapital"
-"British Virgin Islands","Road Town","countryCapital"
-"Brunei","Bandar Seri Begawan","countryCapital"
-"Bulgaria","Sofia","countryCapital"
-"Burkina Faso","Ouagadougou","countryCapital"
-"Burundi","Bujumbura","countryCapital"
-"Cambodia","Phnom Penh","countryCapital"
-"Cameroon","Yaounde","countryCapital"
-"Canada","Ottawa","countryCapital"
-"Cape Verde","Praia","countryCapital"
-"Cayman Islands","George Town","countryCapital"
-"Central African Republic","Bangui","countryCapital"
-"Chad","NDjamena","countryCapital"
-"Chile","Santiago","countryCapital"
-"China","Beijing","countryCapital"
-"Christmas Island","Flying Fish Cove","countryCapital"
-"Cocos Islands","West Island","countryCapital"
-"Colombia","Bogota","countryCapital"
-"Comoros","Moroni","countryCapital"
-"Cook Islands","Avarua","countryCapital"
-"Costa Rica","San Jose","countryCapital"
-"Croatia","Zagreb","countryCapital"
-"Cuba","Havana","countryCapital"
-"Curacao","Willemstad","countryCapital"
-"Cyprus","Nicosia","countryCapital"
-"Czech Republic","Prague","countryCapital"
-"Cote d'Ivoire"|"Ivory Coast","Yamoussoukro","countryCapital"
-"Democratic Republic of the Congo","Kinshasa","countryCapital"
-"Denmark","Copenhagen","countryCapital"
-"Djibouti","Djibouti","countryCapital"
-"Dominica","Roseau","countryCapital"
-"Dominican Republic","Santo Domingo","countryCapital"
-"Easter Island","Hanga Roa","countryCapital"
-"Ecuador","Quito","countryCapital"
-"Egypt","Cairo","countryCapital"
-"El Salvador","San Salvador","countryCapital"
-"England"|"United Kingdom","London","countryCapital"
-"Equatorial Guinea","Malabo","countryCapital"
-"Eritrea","Asmara","countryCapital"
-"Estonia","Tallinn","countryCapital"
-"Ethiopia","Addis Ababa","countryCapital"
-"Falkland Islands","Stanley","countryCapital"
-"Faroe Islands","Torshavn","countryCapital"
-"Fiji","Suva","countryCapital"
-"Finland","Helsinki","countryCapital"
-"France","Paris","countryCapital"
-"French Guiana","Cayenne","countryCapital"
-"French Polynesia","Papeete","countryCapital"
-"Gabon","Libreville","countryCapital"
-"Gambia","Banjul","countryCapital"
-"Georgia","Tbilisi","countryCapital"
-"Germany","Berlin","countryCapital"
-"Ghana","Accra","countryCapital"
-"Gibraltar","Gibraltar","countryCapital"
-"Greece","Athens","countryCapital"
-"Greenland","Nuuk","countryCapital"
-"Grenada","St Georges","countryCapital"
-"Guam","Hagatna","countryCapital"
-"Guatemala","Guatemala City","countryCapital"
-"Guernsey","St Peter Port","countryCapital"
-"Guinea","Conakry","countryCapital"
-"Guinea Bissau","Bissau","countryCapital"
-"Guyana","Georgetown","countryCapital"
-"Haiti","Port au Prince","countryCapital"
-"Honduras","Tegucigalpa","countryCapital"
-"Hungary","Budapest","countryCapital"
-"Iceland","Reykjavik","countryCapital"
-"India","New Delhi","countryCapital"
-"Indonesia","Jakarta","countryCapital"
-"Iran","Tehran","countryCapital"
-"Iraq","Baghdad","countryCapital"
-"Ireland","Dublin","countryCapital"
-"Isle of Man","Douglas","countryCapital"
-"Israel","Jerusalem","countryCapital"
-"Italy","Rome","countryCapital"
-"Jamaica","Kingston","countryCapital"
-"Japan","Tokyo","countryCapital"
-"Jersey","St Helier","countryCapital"
-"Jordan","Amman","countryCapital"
-"Kazakhstan","Astana","countryCapital"
-"Kenya","Nairobi","countryCapital"
-"Kiribati","Tarawa","countryCapital"
-"Kosovo","Pristina","countryCapital"
-"Kuwait","Kuwait City","countryCapital"
-"Kyrgyzstan","Bishkek","countryCapital"
-"Laos","Vientiane","countryCapital"
-"Latvia","Riga","countryCapital"
-"Lebanon","Beirut","countryCapital"
-"Lesotho","Maseru","countryCapital"
-"Liberia","Monrovia","countryCapital"
-"Libya","Tripoli","countryCapital"
-"Liechtenstein","Vaduz","countryCapital"
-"Lithuania","Vilnius","countryCapital"
-"Luxembourg","Luxembourg","countryCapital"
-"Macedonia","Skopje","countryCapital"
-"Madagascar","Antananarivo","countryCapital"
-"Malawi","Lilongwe","countryCapital"
-"Malaysia","Kuala Lumpur","countryCapital"
-"Maldives","Male","countryCapital"
-"Mali","Bamako","countryCapital"
-"Malta","Valletta","countryCapital"
-"Marshall Islands","Majuro","countryCapital"
-"Mauritania","Nouakchott","countryCapital"
-"Mauritius","Port Louis","countryCapital"
-"Mexico","Mexico City","countryCapital"
-"Micronesia","Palikir","countryCapital"
-"Moldova","Chisinau","countryCapital"
-"Monaco","Monaco","countryCapital"
-"Mongolia","Ulaanbaatar","countryCapital"
-"Montenegro","Podgorica","countryCapital"
-"Montserrat","Plymouth","countryCapital"
-"Morocco","Rabat","countryCapital"
-"Mozambique","Maputo","countryCapital"
-"Myanmar","Naypyidaw","countryCapital"
-"Nagorno Karabakh Republic","Stepanakert","countryCapital"
-"Namibia","Windhoek","countryCapital"
-"Nauru","Yaren","countryCapital"
-"Nepal","Kathmandu","countryCapital"
-"Netherlands","Amsterdam","countryCapital"
-"New Caledonia","Noumea","countryCapital"
-"New Zealand","Wellington","countryCapital"
-"Nicaragua","Managua","countryCapital"
-"Niger","Niamey","countryCapital"
-"Nigeria","Abuja","countryCapital"
-"Niue","Alofi","countryCapital"
-"Norfolk Island","Kingston","countryCapital"
-"North Korea","Pyongyang","countryCapital"
-"Northern Cyprus","Nicosia","countryCapital"
-"Northern Ireland","Belfast","countryCapital"
-"Northern Mariana Islands","Saipan","countryCapital"
-"Norway","Oslo","countryCapital"
-"Oman","Muscat","countryCapital"
-"Pakistan","Islamabad","countryCapital"
-"Palau","Ngerulmud","countryCapital"
-"Palestine","Jerusalem","countryCapital"
-"Panama","Panama City","countryCapital"
-"Papua New Guinea","Port Moresby","countryCapital"
-"Paraguay","Asuncion","countryCapital"
-"Peru","Lima","countryCapital"
-"Philippines","Manila","countryCapital"
-"Pitcairn Islands","Adamstown","countryCapital"
-"Poland","Warsaw","countryCapital"
-"Portugal","Lisbon","countryCapital"
-"Puerto Rico","San Juan","countryCapital"
-"Qatar","Doha","countryCapital"
-"Republic of the Congo","Brazzaville","countryCapital"
-"Romania","Bucharest","countryCapital"
-"Russia","Moscow","countryCapital"
-"Rwanda","Kigali","countryCapital"
-"Saint Barthelemy","Gustavia","countryCapital"
-"Saint Helena","Jamestown","countryCapital"
-"Saint Kitts and Nevis","Basseterre","countryCapital"
-"Saint Lucia","Castries","countryCapital"
-"Saint Martin","Marigot","countryCapital"
-"Saint Pierre and Miquelon","St Pierre","countryCapital"
-"Saint Vincent and the Grenadines","Kingstown","countryCapital"
-"Samoa","Apia","countryCapital"
-"San Marino","San Marino","countryCapital"
-"Saudi Arabia","Riyadh","countryCapital"
-"Scotland","Edinburgh","countryCapital"
-"Senegal","Dakar","countryCapital"
-"Serbia","Belgrade","countryCapital"
-"Seychelles","Victoria","countryCapital"
-"Sierra Leone","Freetown","countryCapital"
-"Singapore","Singapore","countryCapital"
-"Sint Maarten","Philipsburg","countryCapital"
-"Slovakia","Bratislava","countryCapital"
-"Slovenia","Ljubljana","countryCapital"
-"Solomon Islands","Honiara","countryCapital"
-"Somalia","Mogadishu","countryCapital"
-"Somaliland","Hargeisa","countryCapital"
-"South Africa","Pretoria","countryCapital"
-"South Georgia and the South Sandwich Islands","Grytviken","countryCapital"
-"South Korea","Seoul","countryCapital"
-"South Ossetia","Tskhinvali","countryCapital"
-"South Sudan","Juba","countryCapital"
-"Spain","Madrid","countryCapital"
-"Sri Lanka","Sri Jayawardenapura Kotte","countryCapital"
-"Sudan","Khartoum","countryCapital"
-"Suriname","Paramaribo","countryCapital"
-"Swaziland","Mbabane","countryCapital"
-"Sweden","Stockholm","countryCapital"
-"Switzerland","Bern","countryCapital"
-"Syria","Damascus","countryCapital"
-"Sao Tome and Principe","Sao Tome","countryCapital"
-"Taiwan","Taipei","countryCapital"
-"Tajikistan","Dushanbe","countryCapital"
-"Tanzania","Dodoma","countryCapital"
-"Thailand","Bangkok","countryCapital"
-"Timor Leste","Dili","countryCapital"
-"Togo","Lome","countryCapital"
-"Tonga","Nukualofa","countryCapital"
-"Transnistria","Tiraspol","countryCapital"
-"Trinidad and Tobago","Port of Spain","countryCapital"
-"Tristan da Cunha","Edinburgh of the Seven Seas","countryCapital"
-"Tunisia","Tunis","countryCapital"
-"Turkey","Ankara","countryCapital"
-"Turkmenistan","Ashgabat","countryCapital"
-"Turks and Caicos Islands","Cockburn Town","countryCapital"
-"Tuvalu","Funafuti","countryCapital"
-"Uganda","Kampala","countryCapital"
-"Ukraine","Kyiv","countryCapital"
-"United Arab Emirates","Abu Dhabi","countryCapital"
-"United States of America"|"USA","Washington DC","countryCapital"
-"United States Virgin Islands"|"Virgin Islands","Charlotte Amalie","countryCapital"
-"Uruguay","Montevideo","countryCapital"
-"Uzbekistan","Tashkent","countryCapital"
-"Vanuatu","Port Vila","countryCapital"
-"Vatican City","Vatican City","countryCapital"
-"Venezuela","Caracas","countryCapital"
-"Vietnam","Hanoi","countryCapital"
-"Wales","Cardiff","countryCapital"
-"Wallis and Futuna","Mata Utu","countryCapital"
-"Western Sahara","El Aaiun","countryCapital"
-"Yemen","Sanaa","countryCapital"
-"Zambia","Lusaka","countryCapital"
-"Zimbabwe","Harare","countryCapital"
+ISO code,Country,Capital City,Abreviation,Continent
+af,Afghanistan,Kabul,AFG,Asia
+al,Albania,Tirana,ALB,Europe
+dz,Algeria,Algiers,DZA,Africa
+ad,Andorra,Andorra la Vella,AND,Europe
+ao,Angola,Luanda,AGO,Africa
+ag,Antigua and Barbuda,St. John's,ATG,N. America
+ar,Argentina,Buenos Aires,ARG,S. America
+am,Armenia,Yerevan,ARM,Asia
+au,Australia,Canberra,AUS,Australia
+at,Austria,Vienna,AUT,Europe
+az,Azerbaijan,Baku,AZE,Asia
+bs,Bahamas,Nassau,BHS,N. America
+bh,Bahrain,Manama,BHR,Asia
+bd,Bangladesh,Dhaka,BGD,Asia
+bb,Barbados,Bridgetown,BRB,N. America
+by,Belarus,Minsk,BLR,Europe
+be,Belgium,Brussels,BEL,Europe
+bz,Belize,Belmopan,BLZ,N. America
+bj,Benin,Porto-Novo,BEN,Africa
+bt,Bhutan,Thimphu,BTN,Asia
+bo,Bolivia,La Paz,BOL,S. America
+ba,Bosnia and Herzegovina,Sarajevo,BIH,Europe
+bw,Botswana,Gaborone,BWA,Africa
+br,Brazil,Brasilia,BRA,S. America
+bn,Brunei,Bandar Seri Begawan,BRN,Asia
+bg,Bulgaria,Sofia,BGR,Europe
+bf,Burkina Faso,Ouagadougou,BFA,Africa
+bi,Burundi,Gitega,BDI,Africa
+cv,Cabo Verde,Praia,CPV,Africa
+kh,Cambodia,Phnom Penh,KHM,Asia
+cm,Cameroon,Yaoundé,CMR,Africa
+ca,Canada,Ottawa,CAN,N. America
+cf,Central African Republic,Bangui,CAF,Africa
+td,Chad,N'Djamena,TCD,Africa
+cl,Chile,Santiago,CHL,S. America
+cn,China,Beijing,CHN,Asia
+co,Colombia,Bogota,COL,S. America
+km,Comoros,Moroni,COM,Africa
+cg,Congo,Brazzaville,COG,Africa
+cr,Costa Rica,San José,CRI,N. America
+ci,Côte d'Ivoire,Yamoussoukro,CIV,Africa
+hr,Croatia,Zagreb,HRV,Europe
+cu,Cuba,Havana,CUB,N. America
+cy,Cyprus,Nicosia,CYP,Asia
+cz,Czech Republic,Prague,CZE,Europe
+dk,Denmark,Copenhagen,DNK,Europe
+dj,Djibouti,Djibouti,DJI,Africa
+dm,Dominica,Roseau,DMA,N. America
+do,Dominican Republic,Santo Domingo,DOM,N. America
+cd,DR Congo,Kinshasa,COD,Africa
+ec,Ecuador,Quito,ECU,S. America
+eg,Egypt,Cairo,EGY,Africa
+sv,El Salvador,San Salvador,SLV,N. America
+gq,Equatorial Guinea,Malabo,GNQ,Africa
+er,Eritrea,Asmara,ERI,Africa
+ee,Estonia,Tallinn,EST,Europe
+sz,Eswatini,Mbabane,SWZ,Africa
+et,Ethiopia,Addis Ababa,ETH,Africa
+fj,Fiji,Suva,FJI,Australia
+fi,Finland,Helsinki,FIN,Europe
+fr,France,Paris,FRA,Europe
+ga,Gabon,Libreville,GAB,Africa
+gm,Gambia,Banjul,GMB,Africa
+ge,Georgia,Tbilisi,GEO,Asia
+de,Germany,Berlin,DEU,Europe
+gh,Ghana,Accra,GHA,Africa
+gr,Greece,Athens,GRC,Europe
+gd,Grenada,St. George's,GRD,N. America
+gt,Guatemala,Guatemala City,GTM,N. America
+gn,Guinea,Conakry,GIN,Africa
+gw,Guinea-Bissau,Bissau,GNB,Africa
+gy,Guyana,Georgetown,GUY,S. America
+ht,Haiti,Port-au-Prince,HTI,N. America
+va,Holy See,Vatican City,VAT,Europe
+hn,Honduras,Tegucigalpa,HND,N. America
+hu,Hungary,Budapest,HUN,Europe
+is,Iceland,Reykjavik,ISL,Europe
+in,India,New Delhi,IND,Asia
+id,Indonesia,Jakarta,IDN,Asia
+ir,Iran,Tehran,IRN,Asia
+iq,Iraq,Baghdad,IRQ,Asia
+ie,Ireland,Dublin,IRL,Europe
+il,Israel,Jerusalem,ISR,Asia
+it,Italy,Rome,ITA,Europe
+jm,Jamaica,Kingston,JAM,N. America
+jp,Japan,Tokyo,JPN,Asia
+jo,Jordan,Amman,JOR,Asia
+kz,Kazakhstan,Nur-Sultan,KAZ,Asia
+ke,Kenya,Nairobi,KEN,Africa
+ki,Kiribati,South Tarawa,KIR,Australia
+kw,Kuwait,Kuwait City,KWT,Asia
+kg,Kyrgyzstan,Bishkek,KGZ,Asia
+la,Laos,Vientiane,LAO,Asia
+lv,Latvia,Riga,LVA,Europe
+lb,Lebanon,Beirut,LBN,Asia
+ls,Lesotho,Maseru,LSO,Africa
+lr,Liberia,Monrovia,LBR,Africa
+ly,Libya,Tripoli,LBY,Africa
+li,Liechtenstein,Vaduz,LIE,Europe
+lt,Lithuania,Vilnius,LTU,Europe
+lu,Luxembourg,Luxembourg City,LUX,Europe
+mg,Madagascar,Antananarivo,MDG,Africa
+mw,Malawi,Lilongwe,MWI,Africa
+my,Malaysia,Kuala Lumpur,MYS,Asia
+mv,Maldives,Male,MDV,Asia
+ml,Mali,Bamako,MLI,Africa
+mt,Malta,Valletta,MLT,Europe
+mh,Marshall Islands,Majuro,MHL,Australia
+mr,Mauritania,Nouakchott,MRT,Africa
+mu,Mauritius,Port Louis,MUS,Africa
+mx,Mexico,Mexico City,MEX,N. America
+fm,Micronesia,Palikir,FSM,Australia
+md,Moldova,Chisinau,MDA,Europe
+mc,Monaco,Monaco,MCO,Europe
+mn,Mongolia,Ulaanbaatar,MNG,Asia
+me,Montenegro,Podgorica,MNE,Europe
+ma,Morocco,Rabat,MAR,Africa
+mz,Mozambique,Maputo,MOZ,Africa
+mm,Myanmar,Naypyidaw,MMR,Asia
+na,Namibia,Windhoek,NAM,Africa
+nr,Nauru,Yaren District,NRU,Australia
+np,Nepal,Kathmandu,NPL,Asia
+nl,Netherlands,Amsterdam,NLD,Europe
+nz,New Zealand,Wellington,NZL,Australia
+ni,Nicaragua,Managua,NIC,N. America
+ne,Niger,Niamey,NER,Africa
+ng,Nigeria,Abuja,NGA,Africa
+kp,North Korea,Pyongyang,PRK,Asia
+mk,North Macedonia,Skopje,MKD,Europe
+no,Norway,Oslo,NOR,Europe
+om,Oman,Muscat,OMN,Asia
+pk,Pakistan,Islamabad,PAK,Asia
+pw,Palau,Ngerulmud,PLW,Australia
+pa,Panama,Panama City,PAN,N. America
+pg,Papua New Guinea,Port Moresby,PNG,Australia
+py,Paraguay,Asunción,PRY,S. America
+pe,Peru,Lima,PER,S. America
+ph,Philippines,Manila,PHL,Asia
+pl,Poland,Warsaw,POL,Europe
+pt,Portugal,Lisbon,PRT,Europe
+qa,Qatar,Doha,QAT,Asia
+ro,Romania,Bucharest,ROM,Europe
+ru,Russia,Moscow,RUS,Europe
+rw,Rwanda,Kigali,RWA,Africa
+kn,Saint Kitts & Nevis,Basseterre,KNA,N. America
+lc,Saint Lucia,Castries,LCA,N. America
+ws,Samoa,Apia,WSM,Australia
+sm,San Marino,San Marino,SMR,Europe
+st,Sao Tome & Principe,São Tomé,STP,Africa
+sa,Saudi Arabia,Riyadh,SAU,Asia
+sn,Senegal,Dakar,SEN,Africa
+rs,Serbia,Belgrade,SRB,Europe
+sc,Seychelles,Victoria,SYC,Africa
+sl,Sierra Leone,Freetown,SLE,Africa
+sg,Singapore,Singapore,SGP,Asia
+sk,Slovakia,Bratislava,SVK,Europe
+si,Slovenia,Ljubljana,SVN,Europe
+sb,Solomon Islands,Honiara,SLB,Australia
+so,Somalia,Mogadishu,SOM,Africa
+za,South Africa,Cape Town,ZAF,Africa
+kr,South Korea,Seoul,KOR,Asia
+ss,South Sudan,Juba,SSD,Africa
+es,Spain,Madrid,ESP,Europe
+lk,Sri Lanka,Sri Jayawardenepura Kotte,LKA,Asia
+vc,St. Vincent & Grenadines,Kingstown,VCT,N. America
+ps,Palestine,Ramallah,PSE,Asia
+sd,Sudan,Khartoum,SDN,Africa
+sr,Suriname,Paramaribo,SUR,S. America
+se,Sweden,Stockholm,SWE,Europe
+ch,Switzerland,Bern,CHE,Europe
+sy,Syria,Damascus,SYR,Asia
+tj,Tajikistan,Dushanbe,TJK,Asia
+tz,Tanzania,Dodoma,TZA,Africa
+th,Thailand,Bangkok,THA,Asia
+tl,Timor-Leste,Dili,TLS,Asia
+tg,Togo,Lome,TGO,Africa
+to,Tonga,Nuku'alofa,TON,Australia
+tt,Trinidad and Tobago,Port of Spain,TTO,N. America
+tn,Tunisia,Tunis,TUN,Africa
+tr,Turkey,Ankara,TUR,Asia
+tm,Turkmenistan,Ashgabat,TKM,Asia
+tv,Tuvalu,Funafuti,TUV,Australia
+ug,Uganda,Kampala,UGA,Africa
+ua,Ukraine,Kyiv,UKR,Europe
+ae,United Arab Emirates,Abu Dhabi,ARE,Asia
+gb,United Kingdom,London,GBR,Europe
+us,United States,Washington DC,USA,N. America
+uy,Uruguay,Montevideo,URY,S. America
+uz,Uzbekistan,Tashkent,UZB,Asia
+vu,Vanuatu,Port Vila,VUT,Australia
+ve,Venezuela,Caracas,VEN,S. America
+vn,Vietnam,Hanoi,VNM,Asia
+ye,Yemen,Sana'a,YEM,Asia
+zm,Zambia,Lusaka,ZMB,Africa
+zw,Zimbabwe,Harare,ZWE,Africa

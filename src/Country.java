@@ -5,6 +5,4 @@
  * 
  */
 
-public record Country(String name, String capital) {
-	
-}
+public record Country(String id, String name, String capital, String abr, String continent) {}
