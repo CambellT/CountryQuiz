@@ -4,13 +4,10 @@
  * Country Quiz Game personal project
  * 
  */
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
-import java.text.Normalizer;
-import java.util.regex.Pattern;
 
 public class CountryQuizGame { 
     private static final String DELIMITER = ",";
@@ -20,7 +17,7 @@ public class CountryQuizGame {
      * Loads the countries from the csv file into the set of all countries
      */
     public static List<Country> loadCountries(){
-        List<Country> allCountries = new ArrayList<Country>(); 
+        List<Country> allCountries = new ArrayList<>(); 
         try {
             String fileName = "countries.csv";
             String filePath = getFilePath(fileName);
@@ -35,9 +32,6 @@ public class CountryQuizGame {
             System.out.printf("Loaded %d countries.%n", allCountries.size());
         } catch(IOException e){
             System.out.println("File reading failed");
-        }
-        for (Country c : allCountries){
-            //System.out.println(c.toString());
         }
         return allCountries;
     }
@@ -62,9 +56,6 @@ public class CountryQuizGame {
     }
 
     public static void main(String[] args) {
-        String fileName = "countries.csv";
-        String filePath = getFilePath(fileName);
-
         List<Country> allCountries = loadCountries();
         Scanner scanner = new Scanner(System.in);
         int correctCount;
@@ -78,17 +69,16 @@ public class CountryQuizGame {
 
         System.out.println("Would you like to guess Countries(A) or Capitals(B)?");
         String gameType = scanner.next();
-        System.out.println(gameType);
         scanner.nextLine();
-        
+
         if (gameType.equalsIgnoreCase("A")||gameType.equalsIgnoreCase("Countries")) {
             correctCount = playCountryGame(numRounds, allCountries);
         }
-        else if (gameType.equalsIgnoreCase("A")||gameType.equalsIgnoreCase("Countries")) {
+        else if (gameType.equalsIgnoreCase("B")||gameType.equalsIgnoreCase("Capitals")) {
             correctCount = playCapitalGame(numRounds, allCountries);
         }
         else {
-            System.out.println("Input not recognised");
+            System.out.println("Invalid game type entered.");
             return;
         }
 
@@ -110,12 +100,13 @@ public class CountryQuizGame {
 
     }
 
+    /* The version of the game where the user guesses the Capital City of a given Country */
     public static int playCapitalGame(int numRounds, List<Country> allCountries){
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
+        System.out.println(SEPARATOR);  
         System.out.println("Enter the Capital City of each Country,");
         System.out.println("or type 'quit' to exit.");
-        System.out.println(SEPARATOR);  
 
         for (int i = 1; i < numRounds + 1; i++) {
             Random random = new Random();
@@ -128,33 +119,35 @@ public class CountryQuizGame {
             System.out.println(SEPARATOR); 
 
             String input = scanner.nextLine();
+            System.out.println(SEPARATOR);
 
             // Type quit 
             if (input.equalsIgnoreCase("quit")) {
-                System.out.println("Goodbye!");
+                System.out.println("Quitting...");
                 break;
             }
 
+            // Guess was correct
             if (preprocessString(input).equalsIgnoreCase(preprocessString(currentCity))) { 
-                System.out.println(SEPARATOR); 
                 System.out.println("Well done, "+ currentCity +" is Correct!");
-                System.out.println(input);
                 correctCount++;
             }
-            else{
-                System.out.println(SEPARATOR); 
+            // Guess was incorrect
+            else{ 
                 System.out.println("Incorrect, the answer was "+currentCity+".");
             }
         }
+        // Return the number of questions answered correctly
         return correctCount;
     }
 
+    /* The version of the game where the user guesses the Country of a given Capital City */
     public static int playCountryGame(int numRounds, List<Country> allCountries){
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
+        System.out.println(SEPARATOR);
         System.out.println("Enter the Country that corresponds to the");
-        System.out.println("Capital City, or type 'quit' to exit.");
-        System.out.println(SEPARATOR);  
+        System.out.println("Capital City, or type 'quit' to exit."); 
 
         for (int i = 1; i < numRounds + 1; i++) {
             Random random = new Random();
@@ -168,24 +161,25 @@ public class CountryQuizGame {
             System.out.println(SEPARATOR); 
 
             String input = scanner.nextLine();
+            System.out.println(SEPARATOR);
 
             // Type quit 
             if (input.equalsIgnoreCase("quit")) {
-                System.out.println("Goodbye!");
+                System.out.println("Quitting...");
                 break;
             }
 
-            if (preprocessString(input).equalsIgnoreCase(preprocessString(countryName))) { 
-                System.out.println(SEPARATOR); 
+            // Guess was correct
+            if (preprocessString(input).equalsIgnoreCase(preprocessString(countryName))) {  
                 System.out.println("Well done, "+ countryName +" is Correct!");
-                System.out.println(input);
                 correctCount++;
             }
-            else{
-                System.out.println(SEPARATOR); 
+            // Guess was incorrect
+            else {
                 System.out.println("Incorrect, the answer was "+countryName+".");
             }
         }
+        // Return the number of questions answered correctly
         return correctCount;
     }
 }

@@ -1,6 +1,6 @@
 
-/* Cambell Tanner 06/23
- * 
+/* Cambell Tanner
+ * Date: June 2023
  * The record the represents a Country and its information
  * 
  */
