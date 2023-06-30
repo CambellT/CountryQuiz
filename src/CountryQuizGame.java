@@ -8,7 +8,6 @@
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
-import java.util.random.RandomGenerator.ArbitrarilyJumpableGenerator;
 
 public class CountryQuizGame { 
     private static final String DELIMITER = ",";
@@ -61,19 +60,19 @@ public class CountryQuizGame {
 
     public static void main(String[] args) {
         List<Country> allCountries = loadCountries();
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int correctCount;
 
         System.out.println("==========================================");
         System.out.println("Welcome to the Country Capitals Quiz!");
         System.out.println("How many rounds would you like to play?");
-        int numRounds = scanner.nextInt();
-        scanner.nextLine();
+        int numRounds = sc.nextInt();
+        sc.nextLine();
         System.out.println(SEPARATOR);
 
         System.out.println("Would you like to guess Countries(A) or Capitals(B)?");
-        String gameType = scanner.next();
-        scanner.nextLine();
+        String gameType = sc.next();
+        sc.nextLine();
 
         if (gameType.equalsIgnoreCase("A")||gameType.equalsIgnoreCase("Countries")) {
             correctCount = playCountryGame(numRounds, allCountries);
