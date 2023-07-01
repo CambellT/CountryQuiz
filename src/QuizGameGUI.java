@@ -1,18 +1,35 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class QuizGameGUI extends JFrame {
-    private JButton countryButton;
-    private JButton capitalButton;
-    private JButton continentButton;
-    private JButton flagButton;
+
+    JFrame frame = new JFrame();
+    JTextField textField = new JTextField();
+    JTextArea textArea = new JTextArea();
+
+    private JButton countryButton = new JButton();
+    private JButton capitalButton = new JButton();
+    private JButton continentButton = new JButton();
+    private JButton flagButton = new JButton();
+
+    JLabel answerA = new JLabel();
+    JLabel answerB = new JLabel();
+    JLabel answerC = new JLabel();
+    JLabel answerD = new JLabel();
+    JLabel timerLabel = new JLabel();
+    JLabel secondsLeft = new JLabel();
+
+    JTextField correctCount = new JTextField();
+    JTextField correctPercentage = new JTextField();
 
     public QuizGameGUI() {
         setTitle("Country Quiz Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
+        //setLayout(new FlowLayout());
+
+        frame.setSize(800,600);
+        frame.setVisible(true);
 
         countryButton = new JButton("Guess Countries");
         capitalButton = new JButton("Guess Capitals");
