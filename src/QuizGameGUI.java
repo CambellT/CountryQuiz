@@ -4,15 +4,16 @@ import java.awt.event.*;
 import java.util.List;
 
 public class QuizGameGUI implements ActionListener {
-    private JButton countryButton;
-    private JButton capitalButton;
-    private JButton continentButton;
-    private JButton flagButton;
-
     String[] questions = 	{
-        "What is the capital of Japan?"
+        "What is the capital of Japan?",
+        "What is the capital of England?",
+        "What is the capital of USA?",
+        "What is the capital of Egypt?"
         };
     String[][] options = 	{
+            {"Tokyo","London","Washington DC","Cairo"},
+            {"Tokyo","London","Washington DC","Cairo"},
+            {"Tokyo","London","Washington DC","Cairo"},
             {"Tokyo","London","Washington DC","Cairo"}
         };
     char[] answers = 		{
@@ -22,13 +23,13 @@ public class QuizGameGUI implements ActionListener {
             'D'
         };
 
-    char guess;
+    //char guess;
 	char answer;
 	int index;
 	int correctGuesses = 0;
-	int totalQuestions = 5;
+	int totalQuestions = 4;
 	int result;
-	int seconds = 10;
+	int seconds = 5;
 
 	JFrame frame = new JFrame();
 	JTextField textField = new JTextField();
@@ -40,10 +41,15 @@ public class QuizGameGUI implements ActionListener {
 	JButton buttonB = new JButton();
 	JButton buttonC = new JButton();
 	JButton buttonD = new JButton();
-	JLabel answer_labelA = new JLabel();
-	JLabel answer_labelB = new JLabel();
-	JLabel answer_labelC = new JLabel();
-	JLabel answer_labelD = new JLabel();
+    JButton countryButton = new JButton();
+    JButton capitalButton = new JButton();
+    JButton continentButton = new JButton();
+    JButton flagButton = new JButton();
+
+	JLabel labelA = new JLabel();
+	JLabel labelB = new JLabel();
+	JLabel labelC = new JLabel();
+	JLabel labelD = new JLabel();
 	JLabel timeLabel = new JLabel();
 	JLabel secondsLeft = new JLabel();
 
@@ -68,9 +74,9 @@ public class QuizGameGUI implements ActionListener {
 
         textField.setBounds(0,0,800,50);
 		textField.setBackground(new Color(25,25,25));
-		textField.setForeground(new Color(25,255,0));
-		textField.setFont(new Font("Ink Free",Font.BOLD,30));
-		textField.setBorder(BorderFactory.createBevelBorder(1));
+		textField.setForeground(new Color(255,255,255));
+		textField.setFont(new Font("Sans Serif",Font.ITALIC,30));
+		textField.setBorder(BorderFactory.createBevelBorder(3));
 		textField.setHorizontalAlignment(JTextField.CENTER);
 		textField.setEditable(false);
 
@@ -78,54 +84,54 @@ public class QuizGameGUI implements ActionListener {
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setBackground(new Color(25,25,25));
-		textArea.setForeground(new Color(25,255,0));
-		textArea.setFont(new Font("MV Boli",Font.BOLD,25));
-		textArea.setBorder(BorderFactory.createBevelBorder(1));
+		textArea.setForeground(new Color(255,255,255));
+		textArea.setFont(new Font("Sans Serif",Font.BOLD,25));
+		textArea.setBorder(BorderFactory.createBevelBorder(3));
 		textArea.setEditable(false);
 
         buttonA.setBounds(0,100,100,100);
-		buttonA.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonA.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("A");		
 
 		buttonB.setBounds(0,200,100,100);
-		buttonB.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonB.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonB.setFocusable(false);
 		buttonB.addActionListener(this);
 		buttonB.setText("B");
 
 		buttonC.setBounds(0,300,100,100);
-		buttonC.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonC.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonC.setFocusable(false);
 		buttonC.addActionListener(this);
 		buttonC.setText("C");
 
 		buttonD.setBounds(0,400,100,100);
-		buttonD.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonD.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonD.setFocusable(false);
 		buttonD.addActionListener(this);
 		buttonD.setText("D");
 
-        answer_labelA.setBounds(125,100,500,100);
-		answer_labelA.setBackground(new Color(50,50,50));
-		answer_labelA.setForeground(new Color(25,255,0));
-		answer_labelA.setFont(new Font("MV Boli",Font.PLAIN,35));
+        labelA.setBounds(125,100,500,100);
+		labelA.setBackground(new Color(50,50,50));
+		labelA.setForeground(new Color(255,255,255));
+		labelA.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
-		answer_labelB.setBounds(125,200,500,100);
-		answer_labelB.setBackground(new Color(50,50,50));
-		answer_labelB.setForeground(new Color(25,255,0));
-		answer_labelB.setFont(new Font("MV Boli",Font.PLAIN,35));
+		labelB.setBounds(125,200,500,100);
+		labelB.setBackground(new Color(50,50,50));
+		labelB.setForeground(new Color(255,255,255));
+		labelB.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
-		answer_labelC.setBounds(125,300,500,100);
-		answer_labelC.setBackground(new Color(50,50,50));
-		answer_labelC.setForeground(new Color(25,255,0));
-		answer_labelC.setFont(new Font("MV Boli",Font.PLAIN,35));
+		labelC.setBounds(125,300,500,100);
+		labelC.setBackground(new Color(50,50,50));
+		labelC.setForeground(new Color(255,255,255));
+		labelC.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
-		answer_labelD.setBounds(125,400,500,100);
-		answer_labelD.setBackground(new Color(50,50,50));
-		answer_labelD.setForeground(new Color(25,255,0));
-		answer_labelD.setFont(new Font("MV Boli",Font.PLAIN,35));
+		labelD.setBounds(125,400,500,100);
+		labelD.setBackground(new Color(50,50,50));
+		labelD.setForeground(new Color(255,255,255));
+		labelD.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
         secondsLeft.setBounds(675,500,100,100);
 		secondsLeft.setBackground(new Color(0,0,0));
@@ -139,22 +145,22 @@ public class QuizGameGUI implements ActionListener {
 		timeLabel.setBounds(675,470,100,25);
 		timeLabel.setBackground(new Color(0,0,0));
 		timeLabel.setForeground(new Color(255,255,255));
-		timeLabel.setFont(new Font("MV Boli",Font.PLAIN,16));
+		timeLabel.setFont(new Font("Sans Serif",Font.PLAIN,16));
 		timeLabel.setHorizontalAlignment(JTextField.CENTER);
 		timeLabel.setText("Timer");
 		
-		correctCount.setBounds(425,225,200,100);
+		correctCount.setBounds(300,200,200,100);
 		correctCount.setBackground(new Color(25,25,25));
 		correctCount.setForeground(new Color(25,255,0));
-		correctCount.setFont(new Font("Ink Free",Font.BOLD,50));
-		correctCount.setBorder(BorderFactory.createBevelBorder(1));
+		correctCount.setFont(new Font("Sans Serif",Font.BOLD,50));
+		correctCount.setBorder(BorderFactory.createBevelBorder(2));
 		correctCount.setHorizontalAlignment(JTextField.CENTER);
 		correctCount.setEditable(false);
 		
-		percentageCorrect.setBounds(425,325,200,100);
+		percentageCorrect.setBounds(300,300,200,100);
 		percentageCorrect.setBackground(new Color(25,25,25));
 		percentageCorrect.setForeground(new Color(25,255,0));
-		percentageCorrect.setFont(new Font("Ink Free",Font.BOLD,50));
+		percentageCorrect.setFont(new Font("Sans Serif",Font.BOLD,50));
 		percentageCorrect.setBorder(BorderFactory.createBevelBorder(2));
 		percentageCorrect.setHorizontalAlignment(JTextField.CENTER);
 		percentageCorrect.setEditable(false);
@@ -166,10 +172,10 @@ public class QuizGameGUI implements ActionListener {
 
         frame.add(timeLabel);
 		frame.add(secondsLeft);
-		frame.add(answer_labelA);
-		frame.add(answer_labelB);
-		frame.add(answer_labelC);
-		frame.add(answer_labelD);
+		frame.add(labelA);
+		frame.add(labelB);
+		frame.add(labelC);
+		frame.add(labelD);
 		frame.add(buttonA);
 		frame.add(buttonB);
 		frame.add(buttonC);
@@ -186,7 +192,6 @@ public class QuizGameGUI implements ActionListener {
                 startGame("A");
             }
         });
-
         capitalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -205,7 +210,6 @@ public class QuizGameGUI implements ActionListener {
                 startGame("D");
             }
         });
-
     }
 
     public void nextQuestion() {
@@ -215,10 +219,10 @@ public class QuizGameGUI implements ActionListener {
 		else {
 			textField.setText("Question "+(index+1));
 			textArea.setText(questions[index]);
-			answer_labelA.setText(options[index][0]);
-			answer_labelB.setText(options[index][1]);
-			answer_labelC.setText(options[index][2]);
-			answer_labelD.setText(options[index][3]);
+			labelA.setText(options[index][0]);
+			labelB.setText(options[index][1]);
+			labelC.setText(options[index][2]);
+			labelD.setText(options[index][3]);
             timer.start();
 		}
 	}
@@ -252,30 +256,23 @@ public class QuizGameGUI implements ActionListener {
 			
 		if(e.getSource() == buttonA) {
             answer= 'A';
-            if(answer == answers[index]) {
-                correctGuesses++;
-            }
+            if(answer == answers[index]) {correctGuesses++;}
         }
         if(e.getSource()==buttonB) {
             answer= 'B';
-            if(answer == answers[index]) {
-                correctGuesses++;
-            }
+            if(answer == answers[index]) {correctGuesses++;}
         }
         if(e.getSource()==buttonC) {
             answer= 'C';
-            if(answer == answers[index]) {
-                correctGuesses++;
-            }
+            if(answer == answers[index]) {correctGuesses++;}
         }
         if(e.getSource()==buttonD) {
             answer= 'D';
-            if(answer == answers[index]) {
-                correctGuesses++;
-            }
+            if(answer == answers[index]) {correctGuesses++;}
         }
         displayAnswer();
     }
+    
     public void displayAnswer() {
 		timer.stop();
 		buttonA.setEnabled(false);
@@ -283,23 +280,26 @@ public class QuizGameGUI implements ActionListener {
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
 		
-		if(answers[index] != 'A')
-			answer_labelA.setForeground(new Color(255,0,0));
-		if(answers[index] != 'B')
-			answer_labelB.setForeground(new Color(255,0,0));
-		if(answers[index] != 'C')
-			answer_labelC.setForeground(new Color(255,0,0));
-		if(answers[index] != 'D')
-			answer_labelD.setForeground(new Color(255,0,0));
+		if(answers[index] != 'A'){labelA.setForeground(new Color(255,0,0));}
+        else {labelA.setForeground(new Color(25,255,0));}
+
+		if(answers[index] != 'B'){labelB.setForeground(new Color(255,0,0));}
+        else {labelB.setForeground(new Color(25,255,0));}
+
+		if(answers[index] != 'C'){labelC.setForeground(new Color(255,0,0));}
+        else {labelC.setForeground(new Color(25,255,0)); }
+
+		if(answers[index] != 'D'){labelD.setForeground(new Color(255,0,0));}
+        else {labelD.setForeground(new Color(25,255,0)); }
 		Timer pause = new Timer(2000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				answer_labelA.setForeground(new Color(25,255,0));
-				answer_labelB.setForeground(new Color(25,255,0));
-				answer_labelC.setForeground(new Color(25,255,0));
-				answer_labelD.setForeground(new Color(25,255,0));
+				labelA.setForeground(new Color(255,255,255));
+				labelB.setForeground(new Color(255,255,255));
+				labelC.setForeground(new Color(255,255,255));
+				labelD.setForeground(new Color(255,255,255));
 				answer = ' ';
-				seconds=10;
+				seconds = 10;
 				secondsLeft.setText(String.valueOf(seconds));
 				buttonA.setEnabled(true);
 				buttonB.setEnabled(true);
@@ -319,15 +319,22 @@ public class QuizGameGUI implements ActionListener {
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
+
+        buttonA.setVisible(false);
+        buttonB.setVisible(false);
+        buttonC.setVisible(false);
+        buttonD.setVisible(false);
+        timeLabel.setVisible(false);
+        secondsLeft.setVisible(false);
 		
 		result = (int)((correctGuesses/(double) totalQuestions)*100);
 		
-		textField.setText("RESULTS!");
+		textField.setText("RESULTS");
 		textArea.setText("");
-		answer_labelA.setText("");
-		answer_labelB.setText("");
-		answer_labelC.setText("");
-		answer_labelD.setText("");
+		labelA.setText("");
+		labelB.setText("");
+		labelC.setText("");
+		labelD.setText("");
 		
 		correctCount.setText("("+correctGuesses+"/"+totalQuestions+")");
 		percentageCorrect.setText(result+"%");
