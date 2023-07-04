@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
@@ -67,12 +69,12 @@ public class QuizGameGUI implements ActionListener {
     public QuizGameGUI() {
         frame.setTitle("Country Quiz Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(800,650);
+		frame.setSize(800,600);
 		frame.getContentPane().setBackground(new Color(50,50,50));
 		frame.setLayout(null);
 		frame.setResizable(false);
 
-        textField.setBounds(0,0,800,50);
+        textField.setBounds(0,50,700,50);
 		textField.setBackground(new Color(25,25,25));
 		textField.setForeground(new Color(255,255,255));
 		textField.setFont(new Font("Sans Serif",Font.ITALIC,30));
@@ -80,7 +82,7 @@ public class QuizGameGUI implements ActionListener {
 		textField.setHorizontalAlignment(JTextField.CENTER);
 		textField.setEditable(false);
 
-		textArea.setBounds(0,50,800,50);
+		textArea.setBounds(0,100,700,50);
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setBackground(new Color(25,25,25));
@@ -89,60 +91,87 @@ public class QuizGameGUI implements ActionListener {
 		textArea.setBorder(BorderFactory.createBevelBorder(3));
 		textArea.setEditable(false);
 
-        buttonA.setBounds(0,100,100,100);
+        countryButton.setBounds(0,0,200,50);
+		countryButton.setFont(new Font("Sans Serif",Font.BOLD,15));
+		countryButton.setBackground(new Color(255, 0, 0));
+		countryButton.setForeground(Color.RED);
+		countryButton.setFocusable(false);
+		countryButton.addActionListener(this);
+		countryButton.setText("Country Quiz");	
+
+        capitalButton.setBounds(200,0,200,50);
+		capitalButton.setFont(new Font("Sans Serif",Font.BOLD,15));
+		countryButton.setBackground(Color.BLUE);
+		capitalButton.setFocusable(false);
+		capitalButton.addActionListener(this);
+		capitalButton.setText("Capital Quiz");
+
+        continentButton.setBounds(400,0,200,50);
+		continentButton.setFont(new Font("Sans Serif",Font.BOLD,15));
+		continentButton.setFocusable(false);
+		continentButton.addActionListener(this);
+		continentButton.setText("Continent Quiz");
+
+        flagButton.setBounds(600,0,200,50);
+		flagButton.setFont(new Font("Sans Serif",Font.BOLD,15));
+		flagButton.setFocusable(false);
+		flagButton.addActionListener(this);
+		flagButton.setText("Flag Quiz");
+
+        buttonA.setBounds(0,150,100,100);
 		buttonA.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("A");		
 
-		buttonB.setBounds(0,200,100,100);
+		buttonB.setBounds(0,250,100,100);
 		buttonB.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonB.setFocusable(false);
 		buttonB.addActionListener(this);
 		buttonB.setText("B");
 
-		buttonC.setBounds(0,300,100,100);
+		buttonC.setBounds(0,350,100,100);
 		buttonC.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonC.setFocusable(false);
 		buttonC.addActionListener(this);
 		buttonC.setText("C");
 
-		buttonD.setBounds(0,400,100,100);
+		buttonD.setBounds(0,450,100,100);
 		buttonD.setFont(new Font("Sans Serif",Font.BOLD,35));
 		buttonD.setFocusable(false);
 		buttonD.addActionListener(this);
 		buttonD.setText("D");
 
-        labelA.setBounds(125,100,500,100);
+        labelA.setBounds(125,150,500,100);
 		labelA.setBackground(new Color(50,50,50));
 		labelA.setForeground(new Color(255,255,255));
 		labelA.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
-		labelB.setBounds(125,200,500,100);
+		labelB.setBounds(125,250,500,100);
 		labelB.setBackground(new Color(50,50,50));
 		labelB.setForeground(new Color(255,255,255));
 		labelB.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
-		labelC.setBounds(125,300,500,100);
+		labelC.setBounds(125,350,500,100);
 		labelC.setBackground(new Color(50,50,50));
 		labelC.setForeground(new Color(255,255,255));
 		labelC.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
-		labelD.setBounds(125,400,500,100);
+		labelD.setBounds(125,450,500,100);
 		labelD.setBackground(new Color(50,50,50));
 		labelD.setForeground(new Color(255,255,255));
 		labelD.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
-        secondsLeft.setBounds(675,500,100,100);
+        secondsLeft.setBounds(700,50,100,100);
 		secondsLeft.setBackground(new Color(0,0,0));
 		secondsLeft.setForeground(new Color(255,255,255));
 		secondsLeft.setFont(new Font("Ink Free",Font.BOLD,60));
-		secondsLeft.setBorder(BorderFactory.createBevelBorder(1));
+		secondsLeft.setBorder(BorderFactory.createBevelBorder(6));
 		secondsLeft.setOpaque(true);
 		secondsLeft.setHorizontalAlignment(JTextField.CENTER);
 		secondsLeft.setText(String.valueOf(seconds));
 		
-		timeLabel.setBounds(675,470,100,25);
+		timeLabel.setBounds(700,150,100,25);
 		timeLabel.setBackground(new Color(0,0,0));
 		timeLabel.setForeground(new Color(255,255,255));
 		timeLabel.setFont(new Font("Sans Serif",Font.PLAIN,16));
@@ -165,17 +194,16 @@ public class QuizGameGUI implements ActionListener {
 		percentageCorrect.setHorizontalAlignment(JTextField.CENTER);
 		percentageCorrect.setEditable(false);
 
-        countryButton = new JButton("Guess Countries");
-        capitalButton = new JButton("Guess Capitals");
-        continentButton = new JButton("Guess Continents");
-        flagButton = new JButton("Guess Flags");
-
         frame.add(timeLabel);
 		frame.add(secondsLeft);
 		frame.add(labelA);
 		frame.add(labelB);
 		frame.add(labelC);
 		frame.add(labelD);
+        frame.add(countryButton);
+        frame.add(capitalButton);
+        frame.add(continentButton);
+        frame.add(flagButton);
 		frame.add(buttonA);
 		frame.add(buttonB);
 		frame.add(buttonC);
@@ -189,25 +217,25 @@ public class QuizGameGUI implements ActionListener {
         countryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame("A");
+                //startGame("countryGame");
             }
         });
         capitalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame("B");
+                //startGame("B");
             }
         });
         capitalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame("C");
+                //startGame("C");
             }
         });
         capitalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame("D");
+                //startGame("D");
             }
         });
     }
@@ -272,7 +300,7 @@ public class QuizGameGUI implements ActionListener {
         }
         displayAnswer();
     }
-    
+
     public void displayAnswer() {
 		timer.stop();
 		buttonA.setEnabled(false);
