@@ -1,16 +1,19 @@
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
+import java.util.Random;
 
 public class QuizGameGUI implements ActionListener {
+	List<Country> allCountries = CountryQuizGame.loadCountries();
+	String gameType = "A";
+
     String[] questions = 	{
-        "What is the capital of Japan?",
+        "What is the capital of ",
         "What is the capital of England?",
         "What is the capital of USA?",
-        "What is the capital of Egypt?"
+        "What is the capital of Egypt?",
+		"Flag test"
         };
     String[][] options = 	{
             {"Tokyo","London","Washington DC","Cairo"},
@@ -93,15 +96,14 @@ public class QuizGameGUI implements ActionListener {
 
         countryButton.setBounds(0,0,200,50);
 		countryButton.setFont(new Font("Sans Serif",Font.BOLD,15));
-		countryButton.setBackground(new Color(255, 0, 0));
-		countryButton.setForeground(Color.RED);
+		countryButton.setBackground(Color.GREEN);
 		countryButton.setFocusable(false);
 		countryButton.addActionListener(this);
 		countryButton.setText("Country Quiz");	
 
         capitalButton.setBounds(200,0,200,50);
 		capitalButton.setFont(new Font("Sans Serif",Font.BOLD,15));
-		countryButton.setBackground(Color.BLUE);
+		capitalButton.setBackground(Color.BLUE);
 		capitalButton.setFocusable(false);
 		capitalButton.addActionListener(this);
 		capitalButton.setText("Capital Quiz");
@@ -217,40 +219,63 @@ public class QuizGameGUI implements ActionListener {
         countryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //startGame("countryGame");
+                gameType = "A";
             }
         });
         capitalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //startGame("B");
+                gameType = "B";
             }
         });
         capitalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //startGame("C");
+                gameType = "C";
             }
         });
         capitalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //startGame("D");
+                gameType = "D";
             }
         });
     }
 
     public void nextQuestion() {
+		Country countryA = getRandomCountry();
+		Country countryB = getRandomCountry();
+		Country countryC = getRandomCountry();
+		Country countryD = getRandomCountry();
+
 		if(index >= totalQuestions) {
 			results();
 		}
 		else {
-			textField.setText("Question "+(index+1));
-			textArea.setText(questions[index]);
-			labelA.setText(options[index][0]);
-			labelB.setText(options[index][1]);
-			labelC.setText(options[index][2]);
-			labelD.setText(options[index][3]);
+			//Country Game
+			if (gameType == "A"){
+
+			}
+			//Capital Game
+			if (gameType == "B"){
+				textField.setText("Question "+(index+1));
+				textArea.setText(questions[index]+countryA.name() + "?");
+				labelA.setText(countryA.capital());
+				labelB.setText(countryB.capital());
+				labelC.setText(countryC.capital());
+				labelD.setText(countryD.capital());
+			}
+			// Continent Game
+			if (gameType == "C"){
+
+			}
+			// Continent Game
+			if (gameType == "D"){
+
+				ImageIcon imageA = new ImageIcon(CountryQuizGame.getFilePath("flags/.png"));
+				labelA.setIcon(imageA);
+			}
+			
             timer.start();
 		}
 	}
@@ -370,6 +395,12 @@ public class QuizGameGUI implements ActionListener {
 		frame.add(correctCount);
 		frame.add(percentageCorrect);
 	}
+
+	private Country getRandomCountry() {
+        Random random = new Random();
+        int index = random.nextInt(allCountries.size());
+        return allCountries.get(index);
+    }
 
 }
 
