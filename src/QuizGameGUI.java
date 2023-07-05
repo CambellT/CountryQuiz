@@ -1,40 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class QuizGameGUI implements ActionListener {
 	List<Country> allCountries = CountryQuizGame.loadCountries();
-	String gameType = "A";
-
-    String[] questions = 	{
-        "What is the capital of ",
-        "What is the capital of England?",
-        "What is the capital of USA?",
-        "What is the capital of Egypt?",
-		"Flag test"
-        };
-    String[][] options = 	{
-            {"Tokyo","London","Washington DC","Cairo"},
-            {"Tokyo","London","Washington DC","Cairo"},
-            {"Tokyo","London","Washington DC","Cairo"},
-            {"Tokyo","London","Washington DC","Cairo"}
-        };
-    char[] answers = 		{
-            'A',
-            'B',
-            'C',
-            'D'
-        };
-
-    //char guess;
 	char answer;
 	int index;
 	int correctGuesses = 0;
 	int totalQuestions = 4;
 	int result;
-	int seconds = 5;
+	int seconds = 10;
+	boolean gameHasStarted = false;
+	String gameType = "capitalGame";
+	Country answerCountry;
 
 	JFrame frame = new JFrame();
 	JTextField textField = new JTextField();
@@ -214,83 +199,89 @@ public class QuizGameGUI implements ActionListener {
 		frame.add(textField);
 		frame.setVisible(true);
 
-        nextQuestion();
+        if (gameHasStarted){
+			nextQuestion();
+		}
+		else {
+			startGame(gameType);
+		}
 
-        countryButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameType = "A";
-            }
-        });
-        capitalButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameType = "B";
-            }
-        });
-        capitalButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameType = "C";
-            }
-        });
-        capitalButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameType = "D";
-            }
-        });
     }
 
+	public void startGame(String gameType){
+		gameHasStarted = true;
+		nextQuestion();
+	}
+
     public void nextQuestion() {
-		Country countryA = getRandomCountry();
-		Country countryB = getRandomCountry();
-		Country countryC = getRandomCountry();
-		Country countryD = getRandomCountry();
+		Set<Country> uniqueCountries = Stream.generate(this::getRandomCountry)
+        									.distinct()
+        									.limit(4)
+        									.collect(Collectors.toSet());
+		Country[] countries = uniqueCountries.toArray(new Country[0]);
+
+		Country countryA = countries[0];
+		Country countryB = countries[1];
+		Country countryC = countries[2];
+		Country countryD = countries[3];
+
+		List<Country> options = new ArrayList<>();
+    	options.add(countryA);
+    	options.add(countryB);
+    	options.add(countryC);
+    	options.add(countryD);
+
+    	Collections.shuffle(options);
+		answerCountry = countryA;
 
 		if(index >= totalQuestions) {
 			results();
 		}
 		else {
 			//Country Game
-			if (gameType == "A"){
-
+			if (gameType.equals("countryGame")){
+				textField.setText("Question "+(index+1));
+				textArea.setText("What is the country that "+countryA.capital() + " is the capital of?");
+				labelA.setText(options.get(0).name());
+				labelB.setText(options.get(1).name());
+				labelC.setText(options.get(2).name());
+				labelD.setText(options.get(3).name());
 			}
 			//Capital Game
-			if (gameType == "B"){
+			if (gameType.equals("capitalGame")){
 				textField.setText("Question "+(index+1));
-				textArea.setText(questions[index]+countryA.name() + "?");
-				labelA.setText(countryA.capital());
-				labelB.setText(countryB.capital());
-				labelC.setText(countryC.capital());
-				labelD.setText(countryD.capital());
+				textArea.setText("What is the capital of "+countryA.name() + "?");
+				labelA.setText(options.get(0).capital());
+				labelB.setText(options.get(1).capital());
+				labelC.setText(options.get(2).capital());
+				labelD.setText(options.get(3).capital());
 			}
 			// Continent Game
-			if (gameType == "C"){
-
+			if (gameType.equals("continentGame")){
+				textField.setText("Question "+(index+1));
+				textArea.setText("What continent is " + countryA.name() + " in?");
+				labelA.setText(options.get(0).continent());
+				labelB.setText(options.get(1).continent());
+				labelC.setText(options.get(2).continent());
+				labelD.setText(options.get(3).continent());
 			}
 			// Continent Game
-			if (gameType == "D"){
-
-				ImageIcon imageA = new ImageIcon(CountryQuizGame.getFilePath("flags/.png"));
+			if (gameType.equals("flagGame")){
+				textField.setText("Question "+(index+1));
+				textArea.setText("What is the flag of "+countryA.name() + "?");
+				ImageIcon imageA = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(0).id()+".png"));
+				ImageIcon imageB = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(1).id()+".png"));
+				ImageIcon imageC = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(2).id()+".png"));
+				ImageIcon imageD = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(3).id()+".png"));
 				labelA.setIcon(imageA);
+				labelB.setIcon(imageB);
+				labelC.setIcon(imageC);
+				labelD.setIcon(imageD);
 			}
 			
             timer.start();
 		}
 	}
-
-
-    public void startGame(String gameType) {
-        List<Country> allCountries = CountryQuizGame.loadCountries();
-        switch (gameType) {
-            case ("A") -> {CountryQuizGame.playCountryGame(5, allCountries);}
-            case ("B") -> {CountryQuizGame.playCapitalGame(5, allCountries);}
-            //case ("C") -> {CountryQuizGame.playContinentGame(5, allCountries);}
-            //case ("D") -> {CountryQuizGame.playFlagGame(5, allCountries);}
-            default -> {}
-        }
-    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -306,24 +297,47 @@ public class QuizGameGUI implements ActionListener {
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
+		countryButton.setEnabled(false);
+		capitalButton.setEnabled(false);
+		continentButton.setEnabled(false);
+		flagButton.setEnabled(false);
 			
 		if(e.getSource() == buttonA) {
-            answer= 'A';
-            if(answer == answers[index]) {correctGuesses++;}
+            answer = 'A';
+            if(getAnswer() == labelA.getText()) {correctGuesses++;}
+			displayAnswer();
         }
-        if(e.getSource()==buttonB) {
-            answer= 'B';
-            if(answer == answers[index]) {correctGuesses++;}
+        if(e.getSource() == buttonB) {
+            answer = 'B';
+            if(getAnswer() == labelB.getText()) {correctGuesses++;}
+			displayAnswer();
         }
-        if(e.getSource()==buttonC) {
-            answer= 'C';
-            if(answer == answers[index]) {correctGuesses++;}
+        if(e.getSource() == buttonC) {
+            answer = 'C';
+            if(getAnswer() == labelC.getText()) {correctGuesses++;}
+			displayAnswer();
         }
-        if(e.getSource()==buttonD) {
-            answer= 'D';
-            if(answer == answers[index]) {correctGuesses++;}
+        if(e.getSource() == buttonD) {
+            answer = 'D';
+            if(getAnswer() == labelD.getText()) {correctGuesses++;}
+			displayAnswer();
         }
-        displayAnswer();
+		if(e.getSource() == countryButton) {
+            gameType = "countryGame";
+			startGame(gameType);
+        }
+		if(e.getSource() == capitalButton) {
+            gameType = "capitalGame";
+			startGame(gameType);
+        }
+		if(e.getSource() == continentButton) {
+            gameType = "continentGame";
+			startGame(gameType);
+        }
+		if(e.getSource() == flagButton) {
+            gameType = "flagGame";
+			startGame(gameType);
+        }
     }
 
     public void displayAnswer() {
@@ -332,17 +346,19 @@ public class QuizGameGUI implements ActionListener {
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
+
+
 		
-		if(answers[index] != 'A'){labelA.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelA.getText()){labelA.setForeground(new Color(255,0,0));}
         else {labelA.setForeground(new Color(25,255,0));}
 
-		if(answers[index] != 'B'){labelB.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelB.getText()){labelB.setForeground(new Color(255,0,0));}
         else {labelB.setForeground(new Color(25,255,0));}
 
-		if(answers[index] != 'C'){labelC.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelC.getText()){labelC.setForeground(new Color(255,0,0));}
         else {labelC.setForeground(new Color(25,255,0)); }
 
-		if(answers[index] != 'D'){labelD.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelD.getText()){labelD.setForeground(new Color(255,0,0));}
         else {labelD.setForeground(new Color(25,255,0)); }
 		Timer pause = new Timer(2000, new ActionListener() {
 			@Override
@@ -358,6 +374,10 @@ public class QuizGameGUI implements ActionListener {
 				buttonB.setEnabled(true);
 				buttonC.setEnabled(true);
 				buttonD.setEnabled(true);
+				countryButton.setEnabled(false);
+				capitalButton.setEnabled(true);
+				continentButton.setEnabled(true);
+				flagButton.setEnabled(true);
 				index++;
 				nextQuestion();
 			}
@@ -367,7 +387,6 @@ public class QuizGameGUI implements ActionListener {
 	}
 
     public void results(){
-		
 		buttonA.setEnabled(false);
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
@@ -378,7 +397,7 @@ public class QuizGameGUI implements ActionListener {
         buttonC.setVisible(false);
         buttonD.setVisible(false);
         timeLabel.setVisible(false);
-        secondsLeft.setVisible(false);
+        secondsLeft.setText("");
 		
 		result = (int)((correctGuesses/(double) totalQuestions)*100);
 		
@@ -398,9 +417,25 @@ public class QuizGameGUI implements ActionListener {
 
 	private Country getRandomCountry() {
         Random random = new Random();
-        int index = random.nextInt(allCountries.size());
-        return allCountries.get(index);
+        int randomInt = random.nextInt(allCountries.size());
+        return allCountries.get(randomInt);
     }
+
+	private String getAnswer() {
+		if (gameType.equals("countryGame")){
+			return answerCountry.name();
+		}
+		if (gameType.equals("capitalGame")){
+			return answerCountry.capital();
+		}
+		if (gameType.equals("continentGame")){
+			return answerCountry.continent();
+		}
+		if (gameType.equals("flagGame")){
+			return answerCountry.name();
+		}
+		return "";
+	}
 
 }
 
