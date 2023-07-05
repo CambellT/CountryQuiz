@@ -18,7 +18,7 @@ public class QuizGameGUI implements ActionListener {
 	int result;
 	int seconds = 10;
 	boolean gameHasStarted = false;
-	String gameType = "capitalGame";
+	String gameType = null;
 	Country answerCountry;
 
 	JFrame frame = new JFrame();
@@ -199,17 +199,37 @@ public class QuizGameGUI implements ActionListener {
 		frame.add(textField);
 		frame.setVisible(true);
 
-        if (gameHasStarted){
-			nextQuestion();
-		}
-		else {
-			startGame(gameType);
-		}
+		startGame(gameType);
 
     }
 
-	public void startGame(String gameType){
+	public void startGame(String type){
 		gameHasStarted = true;
+		countryButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "countryGame";
+			}
+		});
+		capitalButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "capitalGame";
+			}
+		});
+		continentButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "continentGame";
+			}
+		});
+		flagButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "flagGame";
+			}
+		});
+		
 		nextQuestion();
 	}
 
@@ -273,6 +293,14 @@ public class QuizGameGUI implements ActionListener {
 				ImageIcon imageB = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(1).id()+".png"));
 				ImageIcon imageC = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(2).id()+".png"));
 				ImageIcon imageD = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(3).id()+".png"));
+				labelA.setFont(new java.awt.Font("Lucida Grande", 1, 0));
+				labelB.setFont(new java.awt.Font("Lucida Grande", 1, 0));
+				labelC.setFont(new java.awt.Font("Lucida Grande", 1, 0));
+				labelD.setFont(new java.awt.Font("Lucida Grande", 1, 0));
+				labelA.setText(options.get(0).id());
+				labelB.setText(options.get(1).id());
+				labelC.setText(options.get(2).id());
+				labelD.setText(options.get(3).id());
 				labelA.setIcon(imageA);
 				labelB.setIcon(imageB);
 				labelC.setIcon(imageC);
@@ -346,19 +374,29 @@ public class QuizGameGUI implements ActionListener {
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
-
-
 		
-		if(getAnswer() != labelA.getText()){labelA.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelA.getText()){
+			labelA.setForeground(new Color(255,0,0));
+			labelA.setIcon(null);
+		}
         else {labelA.setForeground(new Color(25,255,0));}
 
-		if(getAnswer() != labelB.getText()){labelB.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelB.getText()){
+			labelB.setForeground(new Color(255,0,0));
+			labelB.setIcon(null);
+		}
         else {labelB.setForeground(new Color(25,255,0));}
 
-		if(getAnswer() != labelC.getText()){labelC.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelC.getText()){
+			labelC.setForeground(new Color(255,0,0));
+			labelC.setIcon(null);
+		}
         else {labelC.setForeground(new Color(25,255,0)); }
 
-		if(getAnswer() != labelD.getText()){labelD.setForeground(new Color(255,0,0));}
+		if(getAnswer() != labelD.getText()){
+			labelD.setForeground(new Color(255,0,0));
+			labelD.setIcon(null);
+		}
         else {labelD.setForeground(new Color(25,255,0)); }
 		Timer pause = new Timer(2000, new ActionListener() {
 			@Override
@@ -374,7 +412,7 @@ public class QuizGameGUI implements ActionListener {
 				buttonB.setEnabled(true);
 				buttonC.setEnabled(true);
 				buttonD.setEnabled(true);
-				countryButton.setEnabled(false);
+				countryButton.setEnabled(true);
 				capitalButton.setEnabled(true);
 				continentButton.setEnabled(true);
 				flagButton.setEnabled(true);
@@ -407,6 +445,10 @@ public class QuizGameGUI implements ActionListener {
 		labelB.setText("");
 		labelC.setText("");
 		labelD.setText("");
+		labelA.setIcon(null);
+		labelB.setIcon(null);
+		labelC.setIcon(null);
+		labelD.setIcon(null);
 		
 		correctCount.setText("("+correctGuesses+"/"+totalQuestions+")");
 		percentageCorrect.setText(result+"%");
@@ -432,7 +474,7 @@ public class QuizGameGUI implements ActionListener {
 			return answerCountry.continent();
 		}
 		if (gameType.equals("flagGame")){
-			return answerCountry.name();
+			return answerCountry.id();
 		}
 		return "";
 	}
