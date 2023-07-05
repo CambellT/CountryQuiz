@@ -14,10 +14,9 @@ public class QuizGameGUI implements ActionListener {
 	char answer;
 	int index;
 	int correctGuesses = 0;
-	int totalQuestions = 4;
+	int totalQuestions = 10;
 	int result;
 	int seconds = 10;
-	boolean gameHasStarted = false;
 	String gameType = null;
 	Country answerCountry;
 
@@ -199,12 +198,11 @@ public class QuizGameGUI implements ActionListener {
 		frame.add(textField);
 		frame.setVisible(true);
 
-		startGame(gameType);
+		startGame();
 
     }
 
-	public void startGame(String type){
-		gameHasStarted = true;
+	public void startGame(){
 		countryButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -230,6 +228,21 @@ public class QuizGameGUI implements ActionListener {
 			}
 		});
 		
+		textField.setText("Choose a game type");
+		buttonA.setEnabled(false);
+		buttonB.setEnabled(false);
+		buttonC.setEnabled(false);
+		buttonD.setEnabled(false);
+        buttonA.setVisible(false);
+        buttonB.setVisible(false);
+        buttonC.setVisible(false);
+        buttonD.setVisible(false);
+		correctCount.setVisible(false);
+		percentageCorrect.setVisible(false);
+		index = 0;
+		correctGuesses = 0;
+		seconds = 10;
+
 		nextQuestion();
 	}
 
@@ -258,10 +271,13 @@ public class QuizGameGUI implements ActionListener {
 			results();
 		}
 		else {
+			if (gameType == null){
+				return;
+			}
 			//Country Game
 			if (gameType.equals("countryGame")){
 				textField.setText("Question "+(index+1));
-				textArea.setText("What is the country that "+countryA.capital() + " is the capital of?");
+				textArea.setText(countryA.capital() + " is the capital of which country?");
 				labelA.setText(options.get(0).name());
 				labelB.setText(options.get(1).name());
 				labelC.setText(options.get(2).name());
@@ -306,7 +322,19 @@ public class QuizGameGUI implements ActionListener {
 				labelC.setIcon(imageC);
 				labelD.setIcon(imageD);
 			}
-			
+
+			buttonA.setVisible(true);
+        	buttonB.setVisible(true);
+        	buttonC.setVisible(true);
+        	buttonD.setVisible(true);
+			buttonA.setEnabled(true);
+			buttonB.setEnabled(true);
+			buttonC.setEnabled(true);
+			buttonD.setEnabled(true);
+			countryButton.setEnabled(true);
+			capitalButton.setEnabled(true);
+			continentButton.setEnabled(true);
+			flagButton.setEnabled(true);
             timer.start();
 		}
 	}
@@ -331,40 +359,36 @@ public class QuizGameGUI implements ActionListener {
 		flagButton.setEnabled(false);
 			
 		if(e.getSource() == buttonA) {
-            answer = 'A';
             if(getAnswer() == labelA.getText()) {correctGuesses++;}
 			displayAnswer();
         }
         if(e.getSource() == buttonB) {
-            answer = 'B';
             if(getAnswer() == labelB.getText()) {correctGuesses++;}
 			displayAnswer();
         }
         if(e.getSource() == buttonC) {
-            answer = 'C';
             if(getAnswer() == labelC.getText()) {correctGuesses++;}
 			displayAnswer();
         }
         if(e.getSource() == buttonD) {
-            answer = 'D';
             if(getAnswer() == labelD.getText()) {correctGuesses++;}
 			displayAnswer();
         }
 		if(e.getSource() == countryButton) {
             gameType = "countryGame";
-			startGame(gameType);
+			startGame();
         }
 		if(e.getSource() == capitalButton) {
             gameType = "capitalGame";
-			startGame(gameType);
+			startGame();
         }
 		if(e.getSource() == continentButton) {
             gameType = "continentGame";
-			startGame(gameType);
+			startGame();
         }
 		if(e.getSource() == flagButton) {
             gameType = "flagGame";
-			startGame(gameType);
+			startGame();
         }
     }
 
@@ -440,7 +464,7 @@ public class QuizGameGUI implements ActionListener {
 		result = (int)((correctGuesses/(double) totalQuestions)*100);
 		
 		textField.setText("RESULTS");
-		textArea.setText("");
+		textArea.setText("Choose another game to restart");
 		labelA.setText("");
 		labelB.setText("");
 		labelC.setText("");
@@ -452,9 +476,42 @@ public class QuizGameGUI implements ActionListener {
 		
 		correctCount.setText("("+correctGuesses+"/"+totalQuestions+")");
 		percentageCorrect.setText(result+"%");
+		correctCount.setVisible(true);
+		percentageCorrect.setVisible(true);
 		
 		frame.add(correctCount);
 		frame.add(percentageCorrect);
+
+		
+		gameType = null;
+		countryButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "countryGame";
+				startGame();
+			}
+		});
+		capitalButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "capitalGame";
+				startGame();
+			}
+		});
+		continentButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "continentGame";
+				startGame();
+			}
+		});
+		flagButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameType = "flagGame";
+				startGame();
+			}
+		});
 	}
 
 	private Country getRandomCountry() {

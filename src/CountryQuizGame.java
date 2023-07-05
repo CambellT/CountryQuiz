@@ -22,7 +22,12 @@ public class CountryQuizGame {
             String fileName = "countries.csv";
             String filePath = getFilePath(fileName);
             List<String> lines = Files.readAllLines(Path.of(filePath));
+            boolean isFirstLine = true;
             for (String line : lines) {
+                if (isFirstLine) {
+                    isFirstLine = false;
+                    continue;
+                }
                 String[] values = line.split(DELIMITER);
                 String id = values[0].replace("\"", "");
                 String name = values[1].replace("\"", "");
