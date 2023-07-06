@@ -7,5 +7,5 @@ When run, this program plays a game in a Java window where the user can choose f
 which ask questions to match the country to capital, capital to country, country to continent or country 
 to its flag. 
 
-![Screenshot](screenshot.png)
+![Screenshot](Screenshot.png)
 ![Screenshot](screenshot2.png)
