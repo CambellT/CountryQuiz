@@ -1,28 +1,28 @@
-ISO code,Country,Capital City,Abreviation,Continent
+ISO code,Country,Capital City,Abbreviation,Continent
 af,Afghanistan,Kabul,AFG,Asia
 al,Albania,Tirana,ALB,Europe
 dz,Algeria,Algiers,DZA,Africa
 ad,Andorra,Andorra la Vella,AND,Europe
 ao,Angola,Luanda,AGO,Africa
-ag,Antigua and Barbuda,St. John's,ATG,N. America
-ar,Argentina,Buenos Aires,ARG,S. America
+ag,Antigua and Barbuda,St. John's,ATG,North America
+ar,Argentina,Buenos Aires,ARG,South America
 am,Armenia,Yerevan,ARM,Asia
-au,Australia,Canberra,AUS,Australia
+au,Australia,Canberra,AUS,Australasia
 at,Austria,Vienna,AUT,Europe
 az,Azerbaijan,Baku,AZE,Asia
-bs,Bahamas,Nassau,BHS,N. America
+bs,Bahamas,Nassau,BHS,North America
 bh,Bahrain,Manama,BHR,Asia
 bd,Bangladesh,Dhaka,BGD,Asia
-bb,Barbados,Bridgetown,BRB,N. America
+bb,Barbados,Bridgetown,BRB,North America
 by,Belarus,Minsk,BLR,Europe
 be,Belgium,Brussels,BEL,Europe
-bz,Belize,Belmopan,BLZ,N. America
+bz,Belize,Belmopan,BLZ,North America
 bj,Benin,Porto-Novo,BEN,Africa
 bt,Bhutan,Thimphu,BTN,Asia
-bo,Bolivia,La Paz,BOL,S. America
+bo,Bolivia,La Paz,BOL,South America
 ba,Bosnia and Herzegovina,Sarajevo,BIH,Europe
 bw,Botswana,Gaborone,BWA,Africa
-br,Brazil,Brasilia,BRA,S. America
+br,Brazil,Brasilia,BRA,South America
 bn,Brunei,Bandar Seri Begawan,BRN,Asia
 bg,Bulgaria,Sofia,BGR,Europe
 bf,Burkina Faso,Ouagadougou,BFA,Africa
@@ -30,34 +30,34 @@ bi,Burundi,Gitega,BDI,Africa
 cv,Cabo Verde,Praia,CPV,Africa
 kh,Cambodia,Phnom Penh,KHM,Asia
 cm,Cameroon,Yaoundé,CMR,Africa
-ca,Canada,Ottawa,CAN,N. America
+ca,Canada,Ottawa,CAN,North America
 cf,Central African Republic,Bangui,CAF,Africa
 td,Chad,N'Djamena,TCD,Africa
-cl,Chile,Santiago,CHL,S. America
+cl,Chile,Santiago,CHL,South America
 cn,China,Beijing,CHN,Asia
-co,Colombia,Bogota,COL,S. America
+co,Colombia,Bogota,COL,South America
 km,Comoros,Moroni,COM,Africa
 cg,Congo,Brazzaville,COG,Africa
-cr,Costa Rica,San José,CRI,N. America
+cr,Costa Rica,San José,CRI,North America
 ci,Côte d'Ivoire,Yamoussoukro,CIV,Africa
 hr,Croatia,Zagreb,HRV,Europe
-cu,Cuba,Havana,CUB,N. America
+cu,Cuba,Havana,CUB,North America
 cy,Cyprus,Nicosia,CYP,Asia
 cz,Czech Republic,Prague,CZE,Europe
 dk,Denmark,Copenhagen,DNK,Europe
 dj,Djibouti,Djibouti,DJI,Africa
-dm,Dominica,Roseau,DMA,N. America
-do,Dominican Republic,Santo Domingo,DOM,N. America
+dm,Dominica,Roseau,DMA,North America
+do,Dominican Republic,Santo Domingo,DOM,North America
 cd,DR Congo,Kinshasa,COD,Africa
-ec,Ecuador,Quito,ECU,S. America
+ec,Ecuador,Quito,ECU,South America
 eg,Egypt,Cairo,EGY,Africa
-sv,El Salvador,San Salvador,SLV,N. America
+sv,El Salvador,San Salvador,SLV,North America
 gq,Equatorial Guinea,Malabo,GNQ,Africa
 er,Eritrea,Asmara,ERI,Africa
 ee,Estonia,Tallinn,EST,Europe
 sz,Eswatini,Mbabane,SWZ,Africa
 et,Ethiopia,Addis Ababa,ETH,Africa
-fj,Fiji,Suva,FJI,Australia
+fj,Fiji,Suva,FJI,Australasia
 fi,Finland,Helsinki,FIN,Europe
 fr,France,Paris,FRA,Europe
 ga,Gabon,Libreville,GAB,Africa
@@ -66,14 +66,14 @@ ge,Georgia,Tbilisi,GEO,Asia
 de,Germany,Berlin,DEU,Europe
 gh,Ghana,Accra,GHA,Africa
 gr,Greece,Athens,GRC,Europe
-gd,Grenada,St. George's,GRD,N. America
-gt,Guatemala,Guatemala City,GTM,N. America
+gd,Grenada,St. George's,GRD,North America
+gt,Guatemala,Guatemala City,GTM,North America
 gn,Guinea,Conakry,GIN,Africa
 gw,Guinea-Bissau,Bissau,GNB,Africa
-gy,Guyana,Georgetown,GUY,S. America
-ht,Haiti,Port-au-Prince,HTI,N. America
+gy,Guyana,Georgetown,GUY,South America
+ht,Haiti,Port-au-Prince,HTI,North America
 va,Holy See,Vatican City,VAT,Europe
-hn,Honduras,Tegucigalpa,HND,N. America
+hn,Honduras,Tegucigalpa,HND,North America
 hu,Hungary,Budapest,HUN,Europe
 is,Iceland,Reykjavik,ISL,Europe
 in,India,New Delhi,IND,Asia
@@ -83,12 +83,12 @@ iq,Iraq,Baghdad,IRQ,Asia
 ie,Ireland,Dublin,IRL,Europe
 il,Israel,Jerusalem,ISR,Asia
 it,Italy,Rome,ITA,Europe
-jm,Jamaica,Kingston,JAM,N. America
+jm,Jamaica,Kingston,JAM,North America
 jp,Japan,Tokyo,JPN,Asia
 jo,Jordan,Amman,JOR,Asia
 kz,Kazakhstan,Nur-Sultan,KAZ,Asia
 ke,Kenya,Nairobi,KEN,Africa
-ki,Kiribati,South Tarawa,KIR,Australia
+ki,Kiribati,South Tarawa,KIR,Australasia
 kw,Kuwait,Kuwait City,KWT,Asia
 kg,Kyrgyzstan,Bishkek,KGZ,Asia
 la,Laos,Vientiane,LAO,Asia
@@ -106,11 +106,11 @@ my,Malaysia,Kuala Lumpur,MYS,Asia
 mv,Maldives,Male,MDV,Asia
 ml,Mali,Bamako,MLI,Africa
 mt,Malta,Valletta,MLT,Europe
-mh,Marshall Islands,Majuro,MHL,Australia
+mh,Marshall Islands,Majuro,MHL,Australasia
 mr,Mauritania,Nouakchott,MRT,Africa
 mu,Mauritius,Port Louis,MUS,Africa
-mx,Mexico,Mexico City,MEX,N. America
-fm,Micronesia,Palikir,FSM,Australia
+mx,Mexico,Mexico City,MEX,North America
+fm,Micronesia,Palikir,FSM,Australasia
 md,Moldova,Chisinau,MDA,Europe
 mc,Monaco,Monaco,MCO,Europe
 mn,Mongolia,Ulaanbaatar,MNG,Asia
@@ -119,11 +119,11 @@ ma,Morocco,Rabat,MAR,Africa
 mz,Mozambique,Maputo,MOZ,Africa
 mm,Myanmar,Naypyidaw,MMR,Asia
 na,Namibia,Windhoek,NAM,Africa
-nr,Nauru,Yaren District,NRU,Australia
+nr,Nauru,Yaren District,NRU,Australasia
 np,Nepal,Kathmandu,NPL,Asia
 nl,Netherlands,Amsterdam,NLD,Europe
-nz,New Zealand,Wellington,NZL,Australia
-ni,Nicaragua,Managua,NIC,N. America
+nz,New Zealand,Wellington,NZL,Australasia
+ni,Nicaragua,Managua,NIC,North America
 ne,Niger,Niamey,NER,Africa
 ng,Nigeria,Abuja,NGA,Africa
 kp,North Korea,Pyongyang,PRK,Asia
@@ -131,11 +131,11 @@ mk,North Macedonia,Skopje,MKD,Europe
 no,Norway,Oslo,NOR,Europe
 om,Oman,Muscat,OMN,Asia
 pk,Pakistan,Islamabad,PAK,Asia
-pw,Palau,Ngerulmud,PLW,Australia
-pa,Panama,Panama City,PAN,N. America
-pg,Papua New Guinea,Port Moresby,PNG,Australia
-py,Paraguay,Asunción,PRY,S. America
-pe,Peru,Lima,PER,S. America
+pw,Palau,Ngerulmud,PLW,Australasia
+pa,Panama,Panama City,PAN,North America
+pg,Papua New Guinea,Port Moresby,PNG,Australasia
+py,Paraguay,Asunción,PRY,South America
+pe,Peru,Lima,PER,South America
 ph,Philippines,Manila,PHL,Asia
 pl,Poland,Warsaw,POL,Europe
 pt,Portugal,Lisbon,PRT,Europe
@@ -143,9 +143,9 @@ qa,Qatar,Doha,QAT,Asia
 ro,Romania,Bucharest,ROM,Europe
 ru,Russia,Moscow,RUS,Europe
 rw,Rwanda,Kigali,RWA,Africa
-kn,Saint Kitts & Nevis,Basseterre,KNA,N. America
-lc,Saint Lucia,Castries,LCA,N. America
-ws,Samoa,Apia,WSM,Australia
+kn,Saint Kitts & Nevis,Basseterre,KNA,North America
+lc,Saint Lucia,Castries,LCA,North America
+ws,Samoa,Apia,WSM,Australasia
 sm,San Marino,San Marino,SMR,Europe
 st,Sao Tome & Principe,São Tomé,STP,Africa
 sa,Saudi Arabia,Riyadh,SAU,Asia
@@ -156,17 +156,17 @@ sl,Sierra Leone,Freetown,SLE,Africa
 sg,Singapore,Singapore,SGP,Asia
 sk,Slovakia,Bratislava,SVK,Europe
 si,Slovenia,Ljubljana,SVN,Europe
-sb,Solomon Islands,Honiara,SLB,Australia
+sb,Solomon Islands,Honiara,SLB,Australasia
 so,Somalia,Mogadishu,SOM,Africa
 za,South Africa,Cape Town,ZAF,Africa
 kr,South Korea,Seoul,KOR,Asia
 ss,South Sudan,Juba,SSD,Africa
 es,Spain,Madrid,ESP,Europe
 lk,Sri Lanka,Sri Jayawardenepura Kotte,LKA,Asia
-vc,St. Vincent & Grenadines,Kingstown,VCT,N. America
+vc,St. Vincent & Grenadines,Kingstown,VCT,North America
 ps,Palestine,Ramallah,PSE,Asia
 sd,Sudan,Khartoum,SDN,Africa
-sr,Suriname,Paramaribo,SUR,S. America
+sr,Suriname,Paramaribo,SUR,South America
 se,Sweden,Stockholm,SWE,Europe
 ch,Switzerland,Bern,CHE,Europe
 sy,Syria,Damascus,SYR,Asia
@@ -175,21 +175,21 @@ tz,Tanzania,Dodoma,TZA,Africa
 th,Thailand,Bangkok,THA,Asia
 tl,Timor-Leste,Dili,TLS,Asia
 tg,Togo,Lome,TGO,Africa
-to,Tonga,Nuku'alofa,TON,Australia
-tt,Trinidad and Tobago,Port of Spain,TTO,N. America
+to,Tonga,Nuku'alofa,TON,Australasia
+tt,Trinidad and Tobago,Port of Spain,TTO,North America
 tn,Tunisia,Tunis,TUN,Africa
 tr,Turkey,Ankara,TUR,Asia
 tm,Turkmenistan,Ashgabat,TKM,Asia
-tv,Tuvalu,Funafuti,TUV,Australia
+tv,Tuvalu,Funafuti,TUV,Australasia
 ug,Uganda,Kampala,UGA,Africa
 ua,Ukraine,Kyiv,UKR,Europe
 ae,United Arab Emirates,Abu Dhabi,ARE,Asia
 gb,United Kingdom,London,GBR,Europe
-us,United States,Washington DC,USA,N. America
-uy,Uruguay,Montevideo,URY,S. America
+us,United States,Washington DC,USA,North America
+uy,Uruguay,Montevideo,URY,South America
 uz,Uzbekistan,Tashkent,UZB,Asia
-vu,Vanuatu,Port Vila,VUT,Australia
-ve,Venezuela,Caracas,VEN,S. America
+vu,Vanuatu,Port Vila,VUT,Australasia
+ve,Venezuela,Caracas,VEN,South America
 vn,Vietnam,Hanoi,VNM,Asia
 ye,Yemen,Sana'a,YEM,Asia
 zm,Zambia,Lusaka,ZMB,Africa

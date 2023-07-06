@@ -1,19 +1,32 @@
+/*
+ * Author: Cambell Tanner
+ * Date: July 2023
+ * Country Quiz Game personal project
+ * 
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+ * GUI for the Country game, plays a game in a java window where the user can choose from 4 different games,
+ * which ask questions to match the country to capital, capital to country, country to continent or country 
+ * to its flag. 
+ */
 public class QuizGameGUI implements ActionListener {
-	List<Country> allCountries = CountryQuizGame.loadCountries();
+	List<Country> allCountries = CountryLoader.loadCountries();
+	private static final Random random = new Random();
 	char answer;
 	int index;
-	int correctGuesses = 0;
+	int correctGuesses;
 	int totalQuestions = 10;
 	int result;
 	int seconds = 10;
@@ -53,16 +66,19 @@ public class QuizGameGUI implements ActionListener {
 			}
 		});
 
+	/*
+	 * Constructor which build the frame, buttons and text fields to be displayed
+	 */
     public QuizGameGUI() {
         frame.setTitle("Country Quiz Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800,600);
-		frame.getContentPane().setBackground(new Color(50,50,50));
+		frame.getContentPane().setBackground(new Color(100,125,100));
 		frame.setLayout(null);
 		frame.setResizable(false);
 
         textField.setBounds(0,50,700,50);
-		textField.setBackground(new Color(25,25,25));
+		textField.setBackground(new Color(50,50,50));
 		textField.setForeground(new Color(255,255,255));
 		textField.setFont(new Font("Sans Serif",Font.ITALIC,30));
 		textField.setBorder(BorderFactory.createBevelBorder(3));
@@ -72,7 +88,7 @@ public class QuizGameGUI implements ActionListener {
 		textArea.setBounds(0,100,700,50);
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
-		textArea.setBackground(new Color(25,25,25));
+		textArea.setBackground(new Color(100,100,100));
 		textArea.setForeground(new Color(255,255,255));
 		textArea.setFont(new Font("Sans Serif",Font.BOLD,25));
 		textArea.setBorder(BorderFactory.createBevelBorder(3));
@@ -131,22 +147,18 @@ public class QuizGameGUI implements ActionListener {
         labelA.setBounds(125,150,500,100);
 		labelA.setBackground(new Color(50,50,50));
 		labelA.setForeground(new Color(255,255,255));
-		labelA.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
 		labelB.setBounds(125,250,500,100);
 		labelB.setBackground(new Color(50,50,50));
 		labelB.setForeground(new Color(255,255,255));
-		labelB.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
 		labelC.setBounds(125,350,500,100);
 		labelC.setBackground(new Color(50,50,50));
 		labelC.setForeground(new Color(255,255,255));
-		labelC.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
 		labelD.setBounds(125,450,500,100);
 		labelD.setBackground(new Color(50,50,50));
 		labelD.setForeground(new Color(255,255,255));
-		labelD.setFont(new Font("Sans Serif",Font.PLAIN,35));
 
         secondsLeft.setBounds(700,50,100,100);
 		secondsLeft.setBackground(new Color(0,0,0));
@@ -165,16 +177,16 @@ public class QuizGameGUI implements ActionListener {
 		timeLabel.setText("Timer");
 		
 		correctCount.setBounds(300,200,200,100);
-		correctCount.setBackground(new Color(25,25,25));
-		correctCount.setForeground(new Color(25,255,0));
+		correctCount.setBackground(new Color(50,50,50));
+		correctCount.setForeground(new Color(255,255,255));
 		correctCount.setFont(new Font("Sans Serif",Font.BOLD,50));
 		correctCount.setBorder(BorderFactory.createBevelBorder(2));
 		correctCount.setHorizontalAlignment(JTextField.CENTER);
 		correctCount.setEditable(false);
 		
 		percentageCorrect.setBounds(300,300,200,100);
-		percentageCorrect.setBackground(new Color(25,25,25));
-		percentageCorrect.setForeground(new Color(25,255,0));
+		percentageCorrect.setBackground(new Color(50,50,50));
+		percentageCorrect.setForeground(new Color(255,255,255));
 		percentageCorrect.setFont(new Font("Sans Serif",Font.BOLD,50));
 		percentageCorrect.setBorder(BorderFactory.createBevelBorder(2));
 		percentageCorrect.setHorizontalAlignment(JTextField.CENTER);
@@ -199,9 +211,11 @@ public class QuizGameGUI implements ActionListener {
 		frame.setVisible(true);
 
 		startGame();
-
     }
 
+	/*
+	 * Starts or resets the game with the selected game type
+	 */
 	public void startGame(){
 		countryButton.addActionListener(new ActionListener() {
 			@Override
@@ -239,6 +253,14 @@ public class QuizGameGUI implements ActionListener {
         buttonD.setVisible(false);
 		correctCount.setVisible(false);
 		percentageCorrect.setVisible(false);
+		labelA.setFont(new Font("Sans Serif",Font.PLAIN,35));
+		labelB.setFont(new Font("Sans Serif",Font.PLAIN,35));
+		labelC.setFont(new Font("Sans Serif",Font.PLAIN,35));
+		labelD.setFont(new Font("Sans Serif",Font.PLAIN,35));
+		labelA.setIcon(null);
+		labelB.setIcon(null);
+		labelC.setIcon(null);
+		labelD.setIcon(null);
 		index = 0;
 		correctGuesses = 0;
 		seconds = 10;
@@ -246,12 +268,29 @@ public class QuizGameGUI implements ActionListener {
 		nextQuestion();
 	}
 
+	/*
+	 * Called to move on to the next question, gets four random countries and shuffles them and displays the questions
+	 * and four answers to be chosen from by the user
+	 */
     public void nextQuestion() {
 		Set<Country> uniqueCountries = Stream.generate(this::getRandomCountry)
         									.distinct()
         									.limit(4)
         									.collect(Collectors.toSet());
 		Country[] countries = uniqueCountries.toArray(new Country[0]);
+		if (gameType != null && gameType.equals("continentGame")){
+			Set<Country> uniqueContinents = new HashSet<>();
+    		Set<String> usedContinents = new HashSet<>();
+			while (uniqueContinents.size() < 4) {
+				Country country = getRandomCountry();
+				String continent = country.continent();
+				if (!usedContinents.contains(continent)) {
+					uniqueContinents.add(country);
+					usedContinents.add(continent);
+				}
+			}
+			countries = uniqueContinents.toArray(new Country[0]);
+		}
 
 		Country countryA = countries[0];
 		Country countryB = countries[1];
@@ -305,10 +344,10 @@ public class QuizGameGUI implements ActionListener {
 			if (gameType.equals("flagGame")){
 				textField.setText("Question "+(index+1));
 				textArea.setText("What is the flag of "+countryA.name() + "?");
-				ImageIcon imageA = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(0).id()+".png"));
-				ImageIcon imageB = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(1).id()+".png"));
-				ImageIcon imageC = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(2).id()+".png"));
-				ImageIcon imageD = new ImageIcon(CountryQuizGame.getFilePath("flags/"+options.get(3).id()+".png"));
+				ImageIcon imageA = new ImageIcon(CountryLoader.getFilePath("flags/"+options.get(0).id()+".png"));
+				ImageIcon imageB = new ImageIcon(CountryLoader.getFilePath("flags/"+options.get(1).id()+".png"));
+				ImageIcon imageC = new ImageIcon(CountryLoader.getFilePath("flags/"+options.get(2).id()+".png"));
+				ImageIcon imageD = new ImageIcon(CountryLoader.getFilePath("flags/"+options.get(3).id()+".png"));
 				labelA.setFont(new java.awt.Font("Lucida Grande", 1, 0));
 				labelB.setFont(new java.awt.Font("Lucida Grande", 1, 0));
 				labelC.setFont(new java.awt.Font("Lucida Grande", 1, 0));
@@ -339,6 +378,9 @@ public class QuizGameGUI implements ActionListener {
 		}
 	}
 
+	/*
+	 * Main method which calls the constructor for the Quiz Game GUI
+	 */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -347,6 +389,9 @@ public class QuizGameGUI implements ActionListener {
         });
     }
 
+	/*
+	 * Listens for presses of buttons on the screen and responds accordingly
+	 */
     @Override
     public void actionPerformed(ActionEvent e) {
         buttonA.setEnabled(false);
@@ -359,19 +404,19 @@ public class QuizGameGUI implements ActionListener {
 		flagButton.setEnabled(false);
 			
 		if(e.getSource() == buttonA) {
-            if(getAnswer() == labelA.getText()) {correctGuesses++;}
+            if(getAnswer().equals(labelA.getText())) {correctGuesses++;}
 			displayAnswer();
         }
         if(e.getSource() == buttonB) {
-            if(getAnswer() == labelB.getText()) {correctGuesses++;}
+            if(getAnswer().equals(labelB.getText())) {correctGuesses++;}
 			displayAnswer();
         }
         if(e.getSource() == buttonC) {
-            if(getAnswer() == labelC.getText()) {correctGuesses++;}
+            if(getAnswer().equals(labelC.getText())) {correctGuesses++;}
 			displayAnswer();
         }
         if(e.getSource() == buttonD) {
-            if(getAnswer() == labelD.getText()) {correctGuesses++;}
+            if(getAnswer().equals(labelD.getText())) {correctGuesses++;}
 			displayAnswer();
         }
 		if(e.getSource() == countryButton) {
@@ -392,34 +437,40 @@ public class QuizGameGUI implements ActionListener {
         }
     }
 
+	/*
+	 * Displays the correct answer in green text and incorrect answers in red text to let the user know if their
+	 * answer was correct or not (For flag game, the incorrect answers become red X's).
+	 * Also restarts the timer and shows the answer if timer is up
+	 */
     public void displayAnswer() {
 		timer.stop();
 		buttonA.setEnabled(false);
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
+		ImageIcon redX = new ImageIcon(CountryLoader.getFilePath("flags/redX.png"));
 		
-		if(getAnswer() != labelA.getText()){
+		if(!getAnswer().equals(labelA.getText())){
 			labelA.setForeground(new Color(255,0,0));
-			labelA.setIcon(null);
+			if (gameType.equals("flagGame")){labelA.setIcon(redX);}
 		}
         else {labelA.setForeground(new Color(25,255,0));}
 
-		if(getAnswer() != labelB.getText()){
+		if(!getAnswer().equals(labelB.getText())){
 			labelB.setForeground(new Color(255,0,0));
-			labelB.setIcon(null);
+			if (gameType.equals("flagGame")){labelB.setIcon(redX);}
 		}
         else {labelB.setForeground(new Color(25,255,0));}
 
-		if(getAnswer() != labelC.getText()){
+		if(!getAnswer().equals(labelC.getText())){
 			labelC.setForeground(new Color(255,0,0));
-			labelC.setIcon(null);
+			if (gameType.equals("flagGame")){labelC.setIcon(redX);}
 		}
         else {labelC.setForeground(new Color(25,255,0)); }
 
-		if(getAnswer() != labelD.getText()){
+		if(!getAnswer().equals(labelD.getText())){
 			labelD.setForeground(new Color(255,0,0));
-			labelD.setIcon(null);
+			if (gameType.equals("flagGame")){labelD.setIcon(redX);}
 		}
         else {labelD.setForeground(new Color(25,255,0)); }
 		Timer pause = new Timer(2000, new ActionListener() {
@@ -448,6 +499,9 @@ public class QuizGameGUI implements ActionListener {
 		pause.start();
 	}
 
+	/*
+	 * Shows the results of the game as a fraction and percentage and allows a new game to be played
+	 */
     public void results(){
 		buttonA.setEnabled(false);
 		buttonB.setEnabled(false);
@@ -514,12 +568,17 @@ public class QuizGameGUI implements ActionListener {
 		});
 	}
 
+	/*
+	 * Gets a random country from the country list
+	 */
 	private Country getRandomCountry() {
-        Random random = new Random();
         int randomInt = random.nextInt(allCountries.size());
         return allCountries.get(randomInt);
     }
 
+	/*
+	 * Checks the game mode then gets the correct answer for that mode
+	 */
 	private String getAnswer() {
 		if (gameType.equals("countryGame")){
 			return answerCountry.name();
