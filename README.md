@@ -8,3 +8,4 @@ which ask questions to match the country to capital, capital to country, country
 to its flag. 
 
 ![Screenshot](screenshot.png)
+![Screenshot](screenshot2.png)
